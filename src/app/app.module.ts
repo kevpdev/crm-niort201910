@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { UiModule } from './ui/ui.module';
 import { HeaderComponent } from './components/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     LoginModule,
-    UiModule
+    UiModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
