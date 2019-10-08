@@ -9,10 +9,11 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class UiComponent implements OnInit {
   public faBars = faBars;
-  public open = false;
+  public open = true;
   constructor() { }
 
   ngOnInit() {
+
   }
 
   toggle() {
