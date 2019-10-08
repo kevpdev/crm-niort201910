@@ -1,11 +1,21 @@
 @import "theme";
 @import "layout";
+
 /// Description design of user interface
 header {
- height: $header-height;
- background: $header-bg;
- padding: $header-padding;
-}
+  height: $header-height;
+  background: $header-bg;
+  padding: $header-padding;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  fa-icon {
+    font-size: $fa-icons-fz;
+    color: $fa-icons-color;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+ }
 main {
  background: $main-bg;
  min-height: $main-min-height;
@@ -27,6 +37,11 @@ aside {
  width: 0;
  overflow: hidden;
 }
+
+.close-aside .shadow{
+  display: none
+}
+
 .shadow {
  background: $shadow-bg;
  width: $shadow-width;

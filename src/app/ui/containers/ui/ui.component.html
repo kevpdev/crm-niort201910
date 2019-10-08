@@ -1,9 +1,9 @@
 <header class="fixed-top">
-    <fa-icon [icon]="faBars"></fa-icon>
+    <fa-icon [icon]="faBars" (click)="toggle()"></fa-icon>
   header
 </header>
-<main>
- <div class="shadow position-fixed">
+<main class="close-aside" [ngClass]="{'close-aside':open === false}">
+ <div class="shadow position-fixed" (click)="toggle()">
  </div>
  <aside>
    <div class="scroller">
