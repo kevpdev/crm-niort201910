@@ -6,7 +6,11 @@
     <td>{{ item.tjmHt | currency:'EUR' }}</td>
     <td>{{ item | total | currency:'EUR' }}</td>
     <td>{{ item | total: item.tauxTva| currency:'EUR' }}</td>
-    <td>{{ item.state }}</td>
+    <td [appState]="item.state">
+      <select (change)="changeState(item, $event)">
+        <option *ngFor="let state of states | keyvalue" [value]="state.value" [selected]="state.value === item.state">{{ state.value }}</option>
+      </select>
+    </td>
   </tr>
 </app-tableau>
 
