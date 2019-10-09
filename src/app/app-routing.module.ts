@@ -16,7 +16,7 @@ const appRoutes: Routes = [
     loadChildren: () => import('./clients/clients.module').then(mod => mod.ClientsModule),
   },
   {
-    path: '**',
+    path: '**', // charge un routeur en lazy
     loadChildren: () => import('./page-not-found/page-not-found.module').then(mod => mod.PageNotFoundModule),
   },
 ];
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
       appRoutes,
       {
         enableTracing: false,
-        preloadingStrategy: PreloadAllModules
+        preloadingStrategy: PreloadAllModules // précharge les modules
       } // <-- debugging purposes only
     )
 
