@@ -1,20 +1,25 @@
 <header class="fixed-top">
-  <fa-icon [icon]="faBars" (click)="toggle()"></fa-icon>
-  <app-header></app-header>
-</header>
-<main class="close-aside" [ngClass]="{ 'close-aside': open === false }">
-  <div class="shadow position-fixed" (click)="toggle()"></div>
-  <aside>
-    <div class="scroller">
-      <app-nav></app-nav>
+    <fa-icon [icon]="faBars" (click)="toggle()"></fa-icon>
+    <!-- <app-header></app-header> -->
+    <ng-content select="[header]"></ng-content>
+   </header>
+   <main [ngClass]="{'close-aside': open === false}">
+    <div class="shadow position-fixed" (click)="toggle()">
     </div>
-  </aside>
-  <div class="page">
-    <div class="contents">
-        <router-outlet></router-outlet>
+    <aside>
+      <div class="scroller">
+        <!-- <app-nav></app-nav> -->
+        <ng-content select="[nav]"></ng-content>
+      </div>
+    </aside>
+    <div class="page">
+      <div class="contents">
+        <ng-content select="[page]"></ng-content>
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+      <footer>
+        <ng-content select="[footer]"></ng-content>
+        <!-- <app-footer></app-footer> -->
+      </footer>
     </div>
-    <footer>
-      footer
-    </footer>
-  </div>
-</main>
+   </main>

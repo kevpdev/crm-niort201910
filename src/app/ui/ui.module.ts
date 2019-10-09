@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [UiComponent, HeaderComponent, FooterComponent, NavComponent],
-  exports: [UiComponent],
+  exports: [UiComponent, HeaderComponent, NavComponent, FooterComponent, RouterModule],
   imports: [
     CommonModule,
     FontAwesomeModule,
