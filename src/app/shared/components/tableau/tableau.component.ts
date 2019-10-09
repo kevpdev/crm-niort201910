@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tableau',
@@ -10,6 +10,7 @@ export class TableauComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.headers);
   }
 
 }
