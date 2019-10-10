@@ -15,3 +15,8 @@
   }
 }
 
+app-template-a #tableau-dark thead{
+  background: $light-color;
+  color: $dark-color;
+}
+

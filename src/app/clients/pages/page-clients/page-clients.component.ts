@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientsService } from 'src/app/clients/pages/services/clients.service';
 import { Client } from 'src/app/shared/models/client';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-clients',
@@ -13,7 +14,11 @@ export class PageClientsComponent implements OnInit {
   public headers: string[];
   public collection: Client[];
   public states = StateClient;
-  constructor(private clientsService: ClientsService) { }
+  public title: string;
+  public label: string;
+  constructor(
+    private clientsService: ClientsService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.collection = this.clientsService.collection;
@@ -22,6 +27,13 @@ export class PageClientsComponent implements OnInit {
       'Email',
       'State'
     ];
+    // this.title = 'Clients';
+    // this.label = 'Toutes les clients';
+
+    this.route.data.subscribe((res) => {
+      this.title = res.title;
+      this.label = res.label;
+    });
   }
 
   changeState(item: Client, param) {

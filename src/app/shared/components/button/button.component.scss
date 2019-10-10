@@ -1,0 +1,38 @@
+@import 'theme';
+
+:host {
+  margin-left: 10px;
+}
+
+button {
+  border: none;
+  background: $dark-color;
+  transition: all .2s;
+  &:hover{ // button:hover
+    background: darken($dark-color, 20);
+  }
+  a {
+    display: block;
+    padding: .5rem 1rem;
+    color: $light-color;
+    &:hover{ // button:hover
+     text-decoration: none;
+    }
+  }
+}
+
+:host-context(app-template-a) button {
+  background: $color2;
+  transition: all .2s;
+  &:hover{ // button:hover
+    background: darken($color2, 20);
+  }
+}
+
+:host-context(app-template-b) button {
+  background: $color1;
+  transition: all .2s;
+  &:hover{ // button:hover
+    background: darken($color1, 20);
+  }
+}

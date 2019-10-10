@@ -1,11 +1,21 @@
-<app-tableau-dark [headers]="headers">
+<app-template-b [title]="title" [label]="label">
+  <app-tableau-dark [headers]="headers">
     <tr *ngFor="let item of collection">
       <td>{{ item.name }}</td>
       <td>{{ item.email }}</td>
       <td [appState]="item.state">
         <select (change)="changeState(item, $event)">
-          <option *ngFor="let state of states | keyvalue" [value]="state.value" [selected]="state.value === item.state">{{ state.value }}</option>
+          <option
+            *ngFor="let state of states | keyvalue"
+            [value]="state.value"
+            [selected]="state.value === item.state"
+            >{{ state.value }}</option
+          >
         </select>
       </td>
     </tr>
   </app-tableau-dark>
+
+  <app-button route="add" text="ajouter un client"></app-button>
+
+</app-template-b>

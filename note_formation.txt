@@ -1,0 +1,32 @@
+Angular emule le shadows dom
+il gere l'encapsulation en reecrivant les balise/selecteur en ajoutant des attribut personnalisé
+Angular ne reecris pas le selecteur dans le css globale
+
+regle des 80/20 mutualisation
+prototype MOA
+guide de style webdesign => creation variable scss grâce au guide
+
+12 col car la division doit tomber sur un entier et qu'avec le responsive on est en %tage
+
+@media (<768)
+col md 6 50%
+COL MD 12 100%
+
+bootstrap utilise le mobile first
+
+rem = taille du nav   em = taille du parent
+
+le poid des selecteur est tres important  : simple<classe=attribut=pseudo selecteur<id<style=<!important
+
+A retenir :
+-decoupage architecture
+-routeur
+-lifecycle
+- decoupage composant simple et stupide
+- technique communication composant
+    -input
+    -service
+    -transclusion (projection template dans autre template)
+
+    Jamais de fonction de la html, privilegier les pipes
+    

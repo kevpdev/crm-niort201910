@@ -3,6 +3,7 @@ import { PrestationsService } from '../../services/prestations.service';
 import { PrestationsModule } from '../../prestations.module';
 import { Prestation } from 'src/app/shared/models/prestation';
 import { State } from 'src/app/shared/enums/state.enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-prestations',
@@ -13,7 +14,12 @@ export class PagePrestationsComponent implements OnInit {
   public headers: string[];
   public collection: Prestation[];
   public states = State;
-  constructor(private prestationsService: PrestationsService) { }
+  public title: string;
+  public label: string;
+  constructor(
+    private prestationsService: PrestationsService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
     this.collection = this.prestationsService.collection;
@@ -26,6 +32,13 @@ export class PagePrestationsComponent implements OnInit {
       'Total TTC',
       'State'
     ];
+    // this.title = 'Prestations';
+    // this.label = 'Toutes les prestations';
+
+    this.route.data.subscribe((res) => {
+      this.title = res.title;
+      this.label = res.label;
+    });
   }
 
   changeState(item: Prestation, param) {
