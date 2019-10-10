@@ -29,4 +29,9 @@ A retenir :
     -transclusion (projection template dans autre template)
 
     Jamais de fonction de la html, privilegier les pipes
-    
+
+    // generateur de formulaire dynamique a partir d'une config mais compliqué a gerer/maintenir
+    https://ultimatecourses.com/blog/angular-dynamic-components-forms
+
+    //docs firestore
+    https://github.com/angular/angularfire2/blob/master/docs/firestore/collections.md
