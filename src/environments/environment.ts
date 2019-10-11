@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: 'crm-niort-2910-k.appspot.com',
     messagingSenderId: '167336845071',
     appId: '1:167336845071:web:bbff9270e419ddb339e87a'
-  }
+  },
+  urlApi: 'https://www.dev.com/'
 };
 
 /*

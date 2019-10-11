@@ -3,6 +3,7 @@ import { ClientsService } from 'src/app/clients/pages/services/clients.service';
 import { Client } from 'src/app/shared/models/client';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-page-clients',
@@ -12,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PageClientsComponent implements OnInit {
 
   public headers: string[];
-  public collection: Client[];
+  public collection$: Observable<Client[]>;
   public states = StateClient;
   public title: string;
   public label: string;
@@ -21,7 +22,7 @@ export class PageClientsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.collection = this.clientsService.collection;
+    this.collection$ = this.clientsService.collection;
     this.headers = [
       'Nom',
       'Email',

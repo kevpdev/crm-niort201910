@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { UiModule } from './ui/ui.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // the second parameter 'fr' is optional
 registerLocaleData(localeFr, 'fr');
@@ -25,7 +26,8 @@ registerLocaleData(localeFr, 'fr');
     NgbModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr-FR' }], // traduction pipe fr
   bootstrap: [AppComponent]

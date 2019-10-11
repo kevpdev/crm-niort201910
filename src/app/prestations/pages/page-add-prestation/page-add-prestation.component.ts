@@ -29,10 +29,12 @@ export class PageAddPrestationComponent implements OnInit {
     this.prestationsService.add(item).then((res) =>{
       // using router
       this.router.navigate(['/prestations']);
-
+      // relative route using Router and activatedRoute
+      // this.router.navigate(['../'], {relativeTo: this.route});
     });
-    // relative route using Router and activatedRoute
-    // this.router.navigate(['../'], {relativeTo: this.route});
+    // this.prestationsService.add(item).subscribe((res) =>{
+    //   // using router
+    //   this.router.navigate(['/prestations']);
   }
 
 }

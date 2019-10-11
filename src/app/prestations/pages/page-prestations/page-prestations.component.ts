@@ -54,6 +54,10 @@ export class PagePrestationsComponent implements OnInit, OnDestroy {
       // res étant la réponse de l'api
       item.state = param.target.value;
     });
+    // this.prestationsService.update(item).subscribe((res) => {
+    //   // res étant la réponse de l'api
+    //   item.state = param.target.value;
+    // });
   }
 
   ngOnDestroy() {
