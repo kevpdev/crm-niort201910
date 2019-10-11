@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VersionService } from '../../version.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public title: string;
-  constructor() { }
+  public version$: BehaviorSubject<number>;
+  constructor(
+    private versionService: VersionService
+  ) { }
 
   ngOnInit() {
     this.title = 'My App';
+    this.version$ = this.versionService.version$;
   }
+
 
 }
