@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientsService } from 'src/app/clients/pages/services/clients.service';
 import { Client } from 'src/app/shared/models/client';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,14 +19,17 @@ export class PageClientsComponent implements OnInit {
   public label: string;
   constructor(
     private clientsService: ClientsService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.collection$ = this.clientsService.collection;
     this.headers = [
       'Nom',
       'Email',
-      'State'
+      'State',
+      'Actions'
     ];
     // this.title = 'Clients';
     // this.label = 'Toutes les clients';
@@ -41,5 +44,17 @@ export class PageClientsComponent implements OnInit {
     console.log(param.target.value);
     this.clientsService.update(item, param.target.value);
   }
+
+  public edit(item: any) {
+    console.log(item);
+    this.router.navigate(['/clients/edit', item.id]);
+
+  }
+
+  public delete(item: any) {
+   this.clientsService.delete(item);
+  }
+
+
 
 }

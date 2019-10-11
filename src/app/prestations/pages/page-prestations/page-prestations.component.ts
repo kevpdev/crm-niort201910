@@ -3,7 +3,7 @@ import { PrestationsService } from '../../services/prestations.service';
 import { PrestationsModule } from '../../prestations.module';
 import { Prestation } from 'src/app/shared/models/prestation';
 import { State } from 'src/app/shared/enums/state.enum';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 
 @Component({
@@ -22,7 +22,8 @@ export class PagePrestationsComponent implements OnInit, OnDestroy {
 
   constructor(
     private prestationsService: PrestationsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -37,7 +38,8 @@ export class PagePrestationsComponent implements OnInit, OnDestroy {
       'Tjm HT',
       'Total HT',
       'Total TTC',
-      'State'
+      'State',
+      'Actions'
     ];
     // this.title = 'Prestations';
     // this.label = 'Toutes les prestations';
@@ -58,6 +60,16 @@ export class PagePrestationsComponent implements OnInit, OnDestroy {
     //   // res étant la réponse de l'api
     //   item.state = param.target.value;
     // });
+  }
+
+  public edit(item: any) {
+    console.log(item);
+    this.router.navigate(['/prestations/edit', item.id]);
+
+  }
+
+  public delete(item: any) {
+   this.prestationsService.delete(item);
   }
 
   ngOnDestroy() {

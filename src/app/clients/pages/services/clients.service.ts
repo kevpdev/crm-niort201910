@@ -48,9 +48,28 @@ export class ClientsService {
     // return this.http.post(`${this.urlApi}collection/`, item);
   }
   // update item in collection
-  update(item: Client, value: StateClient) {
-    console.log(item);
-    item.state = value;
-    console.log(item);
+  public update(item: Client, option?: StateClient): Promise<any> {
+    const client  = {...item};
+    if (option) {
+      client.state = option;
+    }
+    return this.itemsCollection.doc(item.id).update(client).catch((e) => {
+      console.log(e);
+    });
+     // return this.http.put(`${this.urlApi}collection/`, item);
   }
+
+    // get item by id
+    public getClient(id: string): Observable<Client> {
+      return this.itemsCollection.doc<Client>(id).valueChanges();
+      // return this.http.get(`${this.urlApi}collection`, id);
+    }
+
+    // delete item in collection
+    public delete(item: Client): Promise<any> {
+      return this.itemsCollection.doc(item.id).delete().catch((e) => {
+        console.log(e);
+      });
+       // return this.http.delete(`${this.urlApi}collection/`, item);
+    }
 }

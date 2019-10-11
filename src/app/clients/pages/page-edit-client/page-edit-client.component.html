@@ -1,0 +1,9 @@
+<app-template-b [title]="title" [label]="label">
+
+    <ng-container *ngIf="item$ | async as item">
+      <app-form-client [initForm]="item" (nItem)="edit($event)"></app-form-client>
+    </ng-container>
+
+  </app-template-b>
+
+
