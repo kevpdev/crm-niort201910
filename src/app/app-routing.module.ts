@@ -4,7 +4,7 @@ import { PageLoginComponent } from './login/pages/page-login/page-login.componen
 
 const appRoutes: Routes = [
   { path: '',
-    redirectTo: '/login',
+    redirectTo: '/prestations',
     pathMatch: 'full'
   },
   {
